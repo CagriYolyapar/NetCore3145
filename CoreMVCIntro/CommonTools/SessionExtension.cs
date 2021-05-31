@@ -12,8 +12,15 @@ namespace CoreMVCIntro.CommonTools
 
     public static class SessionExtension
     {
+        //Session["scart"]
       
         //Session'imizi olusturabilmek adına / icerisine nesne de atılabilecek bir Session yaratmak adına bir metot yaratıyoruz...
+
+
+        //Serialization => Bir yapının Json formata dönüştürülmesidir...
+
+        //Deserialization => Bir Json formatın ilgili yapıya dönüstürülmesidir...
+
 
         public static void SetObject(this ISession session,string key,object value)
         {

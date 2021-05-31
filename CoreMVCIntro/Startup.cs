@@ -45,7 +45,13 @@ namespace CoreMVCIntro
             });
 
 
-            //Todo: Session service yaratılacak
+            services.AddSession(x =>
+
+            {
+                x.IdleTimeout = TimeSpan.FromMinutes(20);
+                x.Cookie.HttpOnly = true;
+                x.Cookie.IsEssential = true;
+            });
 
         }
 
@@ -73,7 +79,7 @@ namespace CoreMVCIntro
 
             app.UseAuthorization(); //authorization yetki var mı yok mu gibi durumlarda calısacak bir metottur...
 
-            //Todo:Session service kullanılacak
+            app.UseSession(); //Session'u Configure ettikten sonra kullanmayı unutmamalısınız...
 
             app.UseEndpoints(endpoints =>
             {
