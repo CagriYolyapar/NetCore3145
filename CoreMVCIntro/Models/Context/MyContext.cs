@@ -1,4 +1,5 @@
-﻿using CoreMVCIntro.Models.Entities;
+﻿using CoreMVCIntro.DBConfiguration;
+using CoreMVCIntro.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -33,8 +34,12 @@ namespace CoreMVCIntro.Models.Context
             //modelBuilder.Entity<OrderDetail>().Property(x => x.ID).UseIdentityColumn();
 
             //modelBuilder.Entity<OrderDetail>().Ignore(x => x.ID);
+
+            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
         }
 
+        
 
         //.Net Core üzerinden migrate yapmak istediginiz takdirde add-migration <isim> ve sonrasında update-database demeniz gerekir...
 
