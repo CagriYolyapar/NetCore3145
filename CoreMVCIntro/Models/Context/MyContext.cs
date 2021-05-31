@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CoreMVCIntro.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,24 @@ namespace CoreMVCIntro.Models.Context
         {
 
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<OrderDetail>().Property(x => x.ID).UseIdentityColumn();
+
+            //modelBuilder.Entity<OrderDetail>().Ignore(x => x.ID);
+        }
+
+
+        //.Net Core üzerinden migrate yapmak istediginiz takdirde add-migration <isim> ve sonrasında update-database demeniz gerekir...
+
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<AppUserProfile> Profiles { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
 
 
     }
