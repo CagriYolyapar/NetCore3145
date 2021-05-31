@@ -26,7 +26,7 @@ namespace CoreMVCIntro.Models.Context
 
         public MyContext(DbContextOptions<MyContext> options):base(options)
         {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,7 +36,11 @@ namespace CoreMVCIntro.Models.Context
             //modelBuilder.Entity<OrderDetail>().Ignore(x => x.ID);
 
             modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new ProfileConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
         }
 
         
